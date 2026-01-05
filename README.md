@@ -14,9 +14,10 @@ A Python library for reading Thai National ID cards using PC/SC-compatible smart
   - Full name in Thai and English
   - Date of birth
   - Gender
+  - Religion
   - Registered address
 - **Robust Error Handling**: Built-in retry mechanism and warm reset to handle unresponsive cards (error 0x80100066)
-- **Apple Silicon Optimized**: Tested and fully functional on MacBook Air M4 (macOS Sequoia 15.1)
+- **Apple Silicon Optimized**: Tested and fully functional on MacBook Air M4 with macOS Tahoe 26.1
 - **Deep Scan Technology**: Advanced regex-based data extraction with extended timing for M4 chip compatibility
 - **Cross-Platform**: Compatible with macOS and Windows
 
@@ -110,7 +111,8 @@ National ID      : 1234567890123
 Name (TH)        : นาย สมชาย ใจดี
 Name (EN)        : Mr. Somchai Jaidee
 Date of Birth    : 01/01/1990
-Gender           : Male
+Gender           : ชาย
+Religion         : พุทธ
 Address          : 123 ถนนสุขุมวิท แขวงคลองตัน เขตคลองเตย กรุงเทพมหานคร 10110
 --------------------------------------------------
 ✅ Read successfully (you can remove the card)
@@ -202,8 +204,9 @@ if match:
 | National ID (13 digits) | `80 B0 00 04 02 00 0D` |
 | Thai Name | `80 B0 00 11 02 00 64` |
 | English Name | `80 B0 00 75 02 00 64` |
-| Date of Birth | `80 B0 00 D1 02 00 08` |
+| Date of Birth (Deep Scan) | `80 B0 00 D0 02 00 20` |
 | Gender | `80 B0 00 E1 02 00 01` |
+| Religion | `80 B0 00 E2 02 00 14` |
 | Address | `80 B0 15 79 02 00 64` |
 
 ## Project Structure
